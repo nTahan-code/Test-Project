@@ -20,5 +20,7 @@ public class HttpEndpointTest {
         mockMvc.perform(get("/hello"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello World"));
+        mockMvc.perform(get("/helloUnknownEndpoint"))
+                .andExpect(status().isNotFound());
     }
 }
