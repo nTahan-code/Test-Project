@@ -46,7 +46,8 @@ jib {
         image = "eclipse-temurin:25_36-jre"
     }
     to {
-        image = "springboothelloworld:0.0.1"
+        image = "ghcr.io/springboothelloworld/nTahan-code/Test-Project"
+        tags = setOf("latest", project.version.toString())
     }
 }
 
