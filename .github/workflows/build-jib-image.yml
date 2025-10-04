@@ -6,6 +6,7 @@ on:
 
 jobs:
   buildArm:
+    environment: DEV
     runs-on: ubuntu-22.04-arm
     permissions:
       contents: write
