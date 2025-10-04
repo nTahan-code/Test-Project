@@ -1,8 +1,8 @@
-name: Build Jib Image
+name: Build and Publish JIB Image
 
 on:
   release:
-    types: [created]
+    types: [created, edited]
 
 permissions:
   packages: write
@@ -19,14 +19,14 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-          cache: 'gradle'
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5.0.0
 
-      - name: Build Image
+      - name: Build and Push JIB Image
         env:
-          GH_PASSWORD '${{ secrets.GITHUB_TOKEN }}'
+          GITHUB_USERNAME ${{github.actor}}
+          GITHUB_TOKEN '${{ secrets.GITHUB_TOKEN }}'
         run:
           "./gradlew jib"
 
