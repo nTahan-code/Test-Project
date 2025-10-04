@@ -1,0 +1,32 @@
+name: Build Jib Image
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  packages: write
+
+jobs:
+  buildArm:
+    runs-on: ubuntu-22.04-arm
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.3.0
+
+      - name: Set up Build environment
+        uses: actions/setup-java@v4.7.1
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5.0.0
+
+      - name: Build Image
+        env:
+          GH_PASSWORD '${{ secrets.GITHUB_TOKEN }}'
+        run:
+          "./gradlew jib"
+
