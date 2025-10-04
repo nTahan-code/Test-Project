@@ -49,8 +49,8 @@ jib {
         image = "ghcr.io/ntahan-code/springboothelloworld"
         tags = setOf("latest", project.version.toString())
         auth{
-            username = project.findProperty("GITHUB_USERNAME") as String? ?: ""
-            password = project.findProperty("GITHUB_TOKEN") as String? ?: ""
+            username = System.getenv("GITHUB_USERNAME") ?: ""
+            password = System.getenv("GITHUB_TOKEN") ?: ""
         }
     }
 }
