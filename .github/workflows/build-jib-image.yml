@@ -4,12 +4,12 @@ on:
   release:
     types: [created, edited]
 
-permissions:
-  packages: write
-
 jobs:
   buildArm:
     runs-on: ubuntu-22.04-arm
+    permissions:
+      contents: write
+      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.3.0
