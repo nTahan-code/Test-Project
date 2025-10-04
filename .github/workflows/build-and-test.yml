@@ -40,9 +40,10 @@ jobs:
       - name: Generate and submit dependency graph
         uses: gradle/actions/dependency-submission@v4
 
+#Does not support ARM
   analyze:
     name: Analyze
-    runs-on: ubuntu-22.04-arm
+    runs-on: ubuntu-22.04
     permissions:
       actions: read
       contents: read
