@@ -41,6 +41,7 @@ java {
 jib {
     container {
         mainClass = "org.example.App"
+        ports = listOf("8080")
     }
     from {
         image = "eclipse-temurin:25_36-jre"
