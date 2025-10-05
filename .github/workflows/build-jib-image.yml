@@ -46,6 +46,7 @@ jobs:
           "./gradlew jib"
 
   deploy-azure:
+    environment: DEV
     permissions:
       id-token: write
       contents: read
