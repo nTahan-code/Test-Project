@@ -1,6 +1,8 @@
 //Based on https://www.youtube.com/watch?v=-LhlIqYr3JI
-@description('The Azure region into which the resources should be deployed.')
-param location string = resourceGroup().location
+//@description('The Azure region into which the resources should be deployed.')
+//param location string = resourceGroup().location
+
+var location = 'useast'
 
 @description('The type of environment. This must be nonprod or prod.')
 @allowed([
@@ -24,7 +26,6 @@ var environmentConfigurationMap = {
         appServicePlan: {
             sku: {
                 name: 'B1'
-                tier: 'Basic'
                 capacity: 1
             }
         }
