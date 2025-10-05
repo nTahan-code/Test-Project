@@ -69,3 +69,4 @@ jobs:
           resourceGroupName: ${{ secrets.AZURE_RESOURCEGROUP_NAME }}
           template: ./deploy/main.bicep
           parameters: environmentType=nonprod
+          additionalArguments: --verbose
