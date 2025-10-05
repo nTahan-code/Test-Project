@@ -66,6 +66,6 @@ jobs:
       - uses: azure/arm-deploy@v2
         with:
           deploymentName: ${{ github.run_number }}
-          resourceGroupName: ${{ vars.AZURE_RESOURCEGROUP_NAME }}
+          resourceGroupName: ${{ secrets.AZURE_RESOURCEGROUP_NAME }}
           template: ./deploy/main.bicep
           parameters: environmentType=nonprod
