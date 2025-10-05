@@ -44,6 +44,16 @@ jib {
     }
     from {
         image = "eclipse-temurin:25_36-jre"
+        platforms {
+            platform {
+                architecture = "amd64"
+                os = "linux"
+            }
+            platform {
+                architecture = "arm64"
+                os = "linux"
+            }
+        }
     }
     to {
         image = "ghcr.io/ntahan-code/springboothelloworld"
